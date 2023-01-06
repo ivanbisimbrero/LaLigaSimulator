@@ -234,5 +234,60 @@ public class SingleLinkedList {
 			}			
 			return previous;
 		}		
-	}	
+	}
+	
+	/**
+     * @author Antonio Gabarrús Nerin (alu142920)
+	 * @param data The data to look for in the list
+     * @return The index of the node where data is 
+	 * located or -1 if data is not in the list
+     */
+	public int indexOf(Object data) {
+		if(isEmpty()) return -1;
+		else {
+			SimpleNode aux = first;
+			int i = 0;
+			while(aux != null && aux.data != data) {
+				aux = aux.next;
+				i++;
+			}
+			return aux==null ? -1 : i;
+			
+		}
+	}
+	
+	/**
+     * @author Antonio Gabarrús Nerin (alu142920)
+	 * @param oldData the data to be replaced
+	 * @param newData the replacement data
+     * @return true if the oldData has been replaced by newData
+	 * false otherwise
+     */
+	public boolean replace(Object oldData, Object newData) {
+		
+		if(!contains(oldData)) return false;
+		else {
+			get(oldData).data = newData;
+			return true;
+		}
+
+	}
+
+	/**
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @description shuffles the list and put the elements on a random order
+     */    
+	public void shuffle(){
+		SingleLinkedList shuffled = new SingleLinkedList();
+		while (!isEmpty()){
+			int index = (int)(Math.random()*this.size);
+			shuffled.insertHead(this.get(index));
+			this.remove(shuffled.first.data);
+		}
+		this.first = shuffled.first;
+		this.size = shuffled.size;   
+	}
+	
+	
 }
+
