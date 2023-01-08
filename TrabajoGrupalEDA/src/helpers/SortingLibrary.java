@@ -29,6 +29,10 @@ public class SortingLibrary<T extends Comparable<T>> {
     
     private String lastExecutedMethod;
 
+    /**
+     * @author Antonio Gabarrús Nerin (alu.142920)
+     * @description instantiates a sorting library
+     */
     public SortingLibrary() {
         this.totalExecutionTime = 0;
         this.lastExecutionTime = 0;
@@ -39,16 +43,21 @@ public class SortingLibrary<T extends Comparable<T>> {
         this.lastExecutedMethod = "NONE";
     }
 
+    /** 
+     * @author Antonio Gabarrús Nerin (alu.142920)
+     * @return String representation of the sorting library
+     */
     @Override
     public String toString() {
         return "SortingLibrary{"
-                + "\n\t\"totalExecutionTime\" : " + this.totalExecutionTime
-                + "\n\t\"totalComparisons\" : " + this.totalComparisons
-                + "\n\t\"totalArrayAccesses\" : " + this.totalArrayAccesses
-                + "\n\t\"lastExecutedMethod\" : " + this.lastExecutedMethod
-                + "\n\t\"lastExecutionTime\" : " + this.lastExecutionTime
-                + "\n\t\"lastComparisons\" : " + this.lastComparisons
-                + "\n\t\"lastArrayAccesses\" : " + this.lastArrayAccesses;
+                + "\n\t\"class\" : "
+                + ",\n\t\"totalExecutionTime\" : " + this.totalExecutionTime
+                + ",\n\t\"totalComparisons\" : " + this.totalComparisons
+                + ",\n\t\"totalArrayAccesses\" : " + this.totalArrayAccesses
+                + ",\n\t\"lastExecutedMethod\" : " + this.lastExecutedMethod
+                + ",\n\t\"lastExecutionTime\" : " + this.lastExecutionTime
+                + ",\n\t\"lastComparisons\" : " + this.lastComparisons
+                + ",\n\t\"lastArrayAccesses\" : " + this.lastArrayAccesses;
     }
 
     
@@ -57,13 +66,13 @@ public class SortingLibrary<T extends Comparable<T>> {
     
     /**
      * returns an array with the same elements sorted with the selection method
-     *
+     * @author Antonio Gabarrús Nerin (alu142920)
      * @param array
      * @return sorted array
      */
     public T[] selectionSort(T[] array) {
-        System.out.println("Selection Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Selection Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         
         this.lastExecutedMethod = "SELECTION SORT";
         this.lastArrayAccesses = 0;
@@ -86,9 +95,9 @@ public class SortingLibrary<T extends Comparable<T>> {
             myArray[minPos] = myArray[i];
             myArray[i] = aux;
             this.lastArrayAccesses+=3;
-            System.out.println(Arrays.deepToString(myArray));
+            //System.out.println(Arrays.deepToString(myArray));
         }
-        System.out.println("Selection Sorting End");
+        //System.out.println("Selection Sorting End");
         
         this.lastExecutionTime += System.currentTimeMillis();
         
@@ -101,7 +110,8 @@ public class SortingLibrary<T extends Comparable<T>> {
 
     
     /**
-     * Sort the elements swapping them from pos to 0 
+     * Sort the elements swapping them from pos to 0 with gap gap
+     * @author Antonio Gabarrús Nerin (alu.142920)
      * @param array
      * @param pos
      * @param gap the gap to know the element to compare
@@ -122,13 +132,14 @@ public class SortingLibrary<T extends Comparable<T>> {
     }
 
     /**
-     * Sorts the array with th insertion method
+     * Sorts the array with the insertion method
+     * @author Antonio Gabarrús Nerin (alu.142920)
      * @param array
-     * @return 
+     * @return sorted array
      */
     public T[] insertionSort(T[] array) {
-        System.out.println("Insertion Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Insertion Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "INSERTION SORT";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -151,7 +162,7 @@ public class SortingLibrary<T extends Comparable<T>> {
             this.lastArrayAccesses+=2;
             this.lastComparisons++;
         }
-        System.out.println("Insertion Sorting End");
+        //System.out.println("Insertion Sorting End");
         this.lastExecutionTime += System.currentTimeMillis();
         
         this.totalArrayAccesses += this.lastArrayAccesses;
@@ -162,12 +173,13 @@ public class SortingLibrary<T extends Comparable<T>> {
 
     /**
      * Sorts the array with the bubble method
+     * @author Antonio Gabarrus (alu.142920)
      * @param array
-     * @return 
+     * @return sorted array
      */
     public T[] bubbleSort(T[] array) {
-        System.out.println("Bubble Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Bubble Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "BUBBLE SORT";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -201,7 +213,7 @@ public class SortingLibrary<T extends Comparable<T>> {
                 ++j;
             }
         } while (hasInterchanged);
-        System.out.println("Bubble Sorting End");
+        //System.out.println("Bubble Sorting End");
         
         this.lastExecutionTime += System.currentTimeMillis();
         
@@ -213,12 +225,13 @@ public class SortingLibrary<T extends Comparable<T>> {
 
     /**
      * Sorts the array with the Shell method
+     * @author Antonio Gabarrús Nerin (alu142920)
      * @param array
-     * @return 
+     * @return sorted array
      */
     public T[] shellSort(T[] array) {
-        System.out.println("Shell Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Shell Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "SHELL SORT";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -241,7 +254,7 @@ public class SortingLibrary<T extends Comparable<T>> {
                     myArray[i] = myArray[i + gap];
                     myArray[i + gap] = aux;
                     this.lastArrayAccesses+=3;
-                    System.out.println(Arrays.deepToString(myArray));
+                    //System.out.println(Arrays.deepToString(myArray));
                     backtrackingSort(myArray, i, gap);
                 }
                 this.lastComparisons++;
@@ -249,7 +262,7 @@ public class SortingLibrary<T extends Comparable<T>> {
             }
             
         } while (gap != 1);
-        System.out.println("Shell Sorting End");
+        //System.out.println("Shell Sorting End");
         this.lastExecutionTime += System.currentTimeMillis();
         
         this.totalArrayAccesses += this.lastArrayAccesses;
@@ -258,9 +271,15 @@ public class SortingLibrary<T extends Comparable<T>> {
         return myArray;
     }
     
+    /**
+     * Sorts the array with the Heapsort method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     public T[] heapSort(T[] array){
-        System.out.println("Heap Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Heap Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "HEAP SORT";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -271,9 +290,21 @@ public class SortingLibrary<T extends Comparable<T>> {
         T[] myArray = (T[]) Array.newInstance(array[0].getClass(), array.length);
         System.arraycopy(array, 0, myArray, 0, array.length);
         //TODO: Implement HeapSort
+
+        this.lastExecutionTime += System.currentTimeMillis();
+
+        this.totalArrayAccesses += this.lastArrayAccesses;
+        this.totalComparisons += this.lastComparisons;
+        this.totalExecutionTime += this.lastExecutionTime;
         return myArray;
     }
     
+    /**
+     * recursion for  Merge Sort method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     private T[] recursiveMergeSort(T[] array){
         if(array.length == 1) return array; //If only one element on the array, the the array is ordered
         T[] myArray = (T[]) Array.newInstance(array[0].getClass(), array.length);
@@ -297,22 +328,35 @@ public class SortingLibrary<T extends Comparable<T>> {
             k = 0; //Controls access to myArray
         
         while (k < myArray.length){
-            if(i>= left.length) 
+            if(i>= left.length){ 
                 myArray[k++] = right[j++];//If left is completely merged into the final array, then we can merge the rest of right
-            else if(j>= right.length)
+            } 
+            else if(j>= right.length){
                 myArray[k++] = left[i++];//If right is completely merged into the final array, then we can merge the rest of left
-            else if(right[j].compareTo(left[i])<0)
+            }
+            else if(right[j].compareTo(left[i])<0){
                 myArray[k++] = right[j++];
-            else
+                ++this.lastComparisons;
+                this.lastArrayAccesses += 2;
+            }
+            else{
                 myArray[k++] = left[i++];
-            
+                ++this.lastComparisons;
+                this.lastArrayAccesses += 2;
+            }
+            this.lastArrayAccesses += 2;
         }
         return myArray;
     }
-    
+    /**
+     * Sorts the array with the Merge Sort method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     public T[] mergeSort(T[] array){
-        System.out.println("Merge Sorting Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Merge Sorting Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "MERGE SORT";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -332,6 +376,12 @@ public class SortingLibrary<T extends Comparable<T>> {
         return myArray;
     }
 
+    /**
+     * Recursive method for the Quicksort LR method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     private T[] recursiveQuickSortLR(T[] array){
         if (array.length == 1) return array;
         T[] myArray = (T[]) Array.newInstance(array[0].getClass(), array.length);
@@ -343,31 +393,42 @@ public class SortingLibrary<T extends Comparable<T>> {
             right = myArray.length -1;
         
         T pivotValue = myArray[pivot];
+        ++this.lastArrayAccesses;
         
         while (left <= right){
-            if (myArray[left].compareTo(pivotValue) < 0) ++left; // If left is lower than pivot, the position respect to pivot is correct
-            else if(myArray[right].compareTo(pivotValue) > 0) --right;//If right is greater or equal to pivot, the position respect to pivot is correct 
+            if (myArray[left].compareTo(pivotValue) < 0){
+                ++left; // If left is lower than pivot, the position respect to pivot is correct
+                ++this.lastComparisons;
+                ++this.lastArrayAccesses;
+            } 
+            else if(myArray[right].compareTo(pivotValue) > 0) {
+                --right;//If right is greater or equal to pivot, the position respect to pivot is correct
+                this.lastComparisons += 2; 
+                this.lastArrayAccesses += 2; 
+            }
             else{ // none left nor right are correct respect to pivot so we interchange them
                 T aux = myArray[left];
                 myArray[left] = myArray[right];
                 myArray[right] = aux;
                 
-                //TODO: move the cursors right and left and, if necessary, pivot
                 
                 pivot = (left==pivot) ? right : (right == pivot) ? left : pivot ;
                 ++left;
                 --right;
+
+                this.lastArrayAccesses += 6;
+                this.lastComparisons += 2;
             }
         }
         //Pivot is correct. Now we apply quickSort to both sides of the pivot
         
-        //TODO: Create the sub arrays correctly
         if(right >= 0){//There is something on the left to order
             T[] leftArray = (T[]) Array.newInstance(myArray[0].getClass(), right+1);
             System.arraycopy(myArray, 0, leftArray, 0, leftArray.length);
             leftArray = recursiveQuickSortLR(leftArray);
-            for (int i = 0; i < leftArray.length; ++i){
+            for (int i = 0; i < leftArray.length; ++i){ //Reconstruct the array correctly
                 myArray[i] = leftArray[i];
+                this.lastArrayAccesses += 2;
             }
         }
         
@@ -375,21 +436,26 @@ public class SortingLibrary<T extends Comparable<T>> {
             T[] rightArray = (T[]) Array.newInstance(myArray[0].getClass(), (myArray.length - left));
             System.arraycopy(myArray, left, rightArray, 0, rightArray.length);
             rightArray = recursiveQuickSortLR(rightArray);
-            for (int i = 0; i < rightArray.length; ++i){
+            for (int i = 0; i < rightArray.length; ++i){ //Reconstruct the array correctly
                 myArray[left+i] = rightArray[i];
+                this.lastArrayAccesses += 2;
             }
         }
-        
-        
         //We put the values of the sub quicksorts in the array we return
         
         
         return myArray;
     }
     
+    /**
+     * Sorts the array with the QuickSortLR method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     public T[] quickSortLR(T[] array){
-        System.out.println("Quick Sorting LR Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Quick Sorting LR Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "QUICK SORT LR";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -405,10 +471,16 @@ public class SortingLibrary<T extends Comparable<T>> {
         this.totalComparisons += this.lastComparisons;
         this.totalExecutionTime += this.lastExecutionTime;
         
-        System.out.println("Quick Sorting LR End");
+        //System.out.println("Quick Sorting LR End");
         return myArray;
     }
     
+    /**
+     * Recursive method for the Heapsort method
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @param array
+     * @return sorted array
+     */
     private T[] recursiveQuickSortLL(T[] array){
         if (array.length == 1) return array;
         T[] myArray = (T[]) Array.newInstance(array[0].getClass(), array.length);
@@ -420,27 +492,36 @@ public class SortingLibrary<T extends Comparable<T>> {
             iterator = 0;
         
         T pivotValue = myArray[pivot];
+        ++this.lastArrayAccesses;
         
         while (iterator < myArray.length){
-            if(firstGreaterThanPivot == -1 && myArray[iterator].compareTo(pivotValue)>0) firstGreaterThanPivot = iterator;
+            if(firstGreaterThanPivot == -1 && myArray[iterator].compareTo(pivotValue)>0){
+                firstGreaterThanPivot = iterator;
+            } 
+            ++this.lastArrayAccesses;
+            ++this.lastComparisons;
+
             if(firstGreaterThanPivot != -1 && myArray[iterator].compareTo(pivotValue)<=0){
                 T aux = myArray[firstGreaterThanPivot];
                 myArray[firstGreaterThanPivot] = myArray[iterator];
                 myArray[iterator] = aux;
+                this.lastArrayAccesses += 4;
                 if(iterator == pivot) pivot = firstGreaterThanPivot;
                 ++firstGreaterThanPivot;
             }
+            ++this.lastArrayAccesses;
+            ++this.lastComparisons;
             ++iterator;
         }
         //Pivot is correct. Now we apply quickSortLL to both sides of the pivot
         
-        //TODO: Create the sub arrays correctly
         if(pivot > 0){//There is something on the left to order
             T[] leftArray = (T[]) Array.newInstance(myArray[0].getClass(), pivot);
             System.arraycopy(myArray, 0, leftArray, 0, leftArray.length);
             leftArray = recursiveQuickSortLL(leftArray);
-            for (int i = 0; i < leftArray.length; ++i){
+            for (int i = 0; i < leftArray.length; ++i){ //Reconstruct the array correctly
                 myArray[i] = leftArray[i];
+                this.lastArrayAccesses += 2;
             }
         }
         
@@ -448,8 +529,9 @@ public class SortingLibrary<T extends Comparable<T>> {
             T[] rightArray = (T[]) Array.newInstance(myArray[0].getClass(), (myArray.length - pivot - 1));
             System.arraycopy(myArray, pivot+1, rightArray, 0, rightArray.length);
             rightArray = recursiveQuickSortLL(rightArray);
-            for (int i = 0; i < rightArray.length; ++i){
+            for (int i = 0; i < rightArray.length; ++i){//Reconstruct the array correctly
                 myArray[i+pivot+1] = rightArray[i];
+                this.lastArrayAccesses += 2;
             }
         }
         
@@ -461,8 +543,8 @@ public class SortingLibrary<T extends Comparable<T>> {
     }
     
     public T[] quickSortLL(T[] array){
-        System.out.println("Quick Sorting LL Start");
-        System.out.println("param |array|: " + Arrays.deepToString(array));
+        //System.out.println("Quick Sorting LL Start");
+        //System.out.println("param |array|: " + Arrays.deepToString(array));
         this.lastExecutedMethod = "QUICK SORT LL";
         this.lastArrayAccesses = 0;
         this.lastComparisons = 0;
@@ -478,10 +560,15 @@ public class SortingLibrary<T extends Comparable<T>> {
         this.totalComparisons += this.lastComparisons;
         this.totalExecutionTime += this.lastExecutionTime;
         
-        System.out.println("Quick Sorting LR End");
+        //System.out.println("Quick Sorting LR End");
         return myArray;
     }
     
+    /**
+     * 
+     * @author Antonio Gabarrús Nerin (alu142920)
+     * @return Stats of the SortingLibrary instance
+     */
     public String getStats() {
         return "{\n"
                 + "\tLast Executed Metod: " + this.lastExecutedMethod + "\n"
