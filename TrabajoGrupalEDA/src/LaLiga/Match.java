@@ -8,9 +8,9 @@ public class Match {
 	private final int LOW_DIF=5;
 	private int awayScore;
 	private Team awayTeam;
-	String day;
-	int homeScore;
-	Team homeTeam;
+	private String day;
+	private int homeScore;
+	private Team homeTeam;
 	
 	public Match(Team awayTeam, Team homeTeam) {
 		this.awayTeam = awayTeam;
@@ -37,6 +37,12 @@ public class Match {
 	}
 	
 	public void simulate(){ //const
-		
+		System.out.println("PARTIDO: "+homeTeam.getName()+" vs "+awayTeam.getName()+": "+homeScore
+				+"-"+awayScore+"\n");
+		homeTeam.addGoalsFor(homeScore);
+		homeTeam.addGoalsAgainst(awayScore);
+		awayTeam.addGoalsFor(awayScore);
+		awayTeam.addGoalsAgainst(homeScore);
+		//PUNTUACIÓN
 	}
 }
