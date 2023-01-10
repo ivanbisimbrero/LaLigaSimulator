@@ -17,7 +17,6 @@ public class MatchDay {
 		this.restingTeam = null;
 	}
 	
-	//TODO: addMatch para añadir un partido
 	public boolean addMatch(Match match) {
 		boolean success = !this.isTeamPlaying(match.getHomeTeam()) && !this.isTeamPlaying(match.getAwayTeam()) 
 		&& match.getHomeTeam() != this.restingTeam && match.getAwayTeam() != this.restingTeam;
@@ -62,7 +61,7 @@ public class MatchDay {
 		}
 		if(match.getDay().equals(WEEK_DAYS[2])){
 			match.getAwayTeam().setHasPlayedOnSunday(true);
-			match.getTeam().setHasPlayedOnSunday(true);
+			match.getHomeTeam().setHasPlayedOnSunday(true);
 		}
 	}
 	
