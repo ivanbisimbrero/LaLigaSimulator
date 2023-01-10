@@ -8,17 +8,23 @@ public class MatchDay {
 	int leg;
 	int matchDayNumber;
 	SingleLinkedList matches;
-	//Team restingTeam;
+	Team restingTeam;
 	
 	public MatchDay(int leg, int matchDayNumber) {
 		this.leg = leg;
 		this.matchDayNumber = matchDayNumber;
-		matches = new SingleLinkedList();
+		this.matches = new SingleLinkedList();
+		this.restingTeam = null;
 	}
 	
-	//TODO: addMatch cuando tenga las estructuras correspondientes
-	public boolean addMatch(/*Match match*/) {
-		return true; //No alarmarse lo cambiare perros
+	//TODO: addMatch para añadir un partido
+	public boolean addMatch(Match match) {
+		boolean success = !this.isTeamPlaying(match.getHomeTeam()) && !this.isTeamPlaying(match.getAwayTeam()) 
+		&& match.getHomeTeam() != this.restingTeam && match.getAwayTeam() != this.restingTeam;
+		if(success) {
+			matches.insertHead(match);
+		}
+		return success;
 	}
 
 	public int getLeg() {
@@ -37,21 +43,31 @@ public class MatchDay {
 		return matches.size;
 	}
 	
-	public boolean isTeamPlaying(/*Team team*/) {
-		//TODO: funcion para comprobar si el equipo esta jugando
-		return true; //No alarmarse lo cambiare perros
+	public boolean isTeamPlaying(Team team) {
+		return team.isActive();
 	}
 	
 	public void playMatchDay() {
-		//TODO: funcion para jugar un dia
+		for (int i = 0; i < this.matches.size; i++){
+			((Match)(this.matches.get(i).data)).simulate();
+			//System.out.println(((Match)(this.matches.get(i).data)));
+		}
 	}
 	
-	private void setDayOfMatch(/*Match match*/) {
-		//TODO: funcion que establece el dia del encuentro
+	private void setDayOfMatch(Match match) {
+		if(match.getHomeTeam().hasPlayedOnSunday() || match.getAwayTeam().hasPlayedOnSunday()){
+			match.setDay(WEEK_DAYS[(int) Math.rand()*3]);
+		} else {
+			match.setDay(WEEK_DAYS[(int) Math.rand()*4]);
+		}
+		if(match.getDay().equals(WEEK_DAYS[2])){
+			match.getAwayTeam().setHasPlayedOnSunday(true);
+			match.getTeam().setHasPlayedOnSunday(true);
+		}
 	}
 	
-	public void setRestingTeam(/*Team restingTeam*/) {
-		//TODO: funcion para setear el equipo visitante
+	public void setRestingTeam(Team restingTeam) {
+		this.restingTeam = restingTeam;
 	}
 
 }
