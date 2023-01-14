@@ -14,7 +14,7 @@ public class MatchDay {
 	public MatchDay(int leg, int matchDayNumber) {
 		this.leg = leg;
 		this.matchDayNumber = matchDayNumber;
-		this.matches = new PriorityQueue(MatchDay.WEEK_DAYS.length);
+		this.matches = new PriorityQueue(this.WEEK_DAYS.length);
 		this.restingTeam = null;
 		this.matchesPlayed = new SingleLinkedList();
 	}
@@ -36,30 +36,31 @@ public class MatchDay {
 		return matchDayNumber;
 	}
 	
-	public SingleLinkedList getMatches() {
+	public PriorityQueue getMatches() {
 		return matches;
 	}
 	
 	public int getNumberOfMatches() {
-		return matches.size;
+		return matches.size();
 	}
 	
 	public boolean isTeamPlaying(Team team) {
         boolean isPlaying = false;
-        PriorityQueue aux = new PriorityQueue(MatchDay.WEEK_DAYS.length);
+        PriorityQueue aux = new PriorityQueue(this.WEEK_DAYS.length);
         while (!this.matches.isEmpty()) {
             Match match = (Match) matches.poll();
             isPlaying = isPlaying || match.getAwayTeam() == team || match.getHomeTeam() == team;
-            int prio = (match.getDay().equals(MatchDay.WEEK_DAYS[0])) ? 1 : 
-                       (match.getDay().equals(MatchDay.WEEK_DAYS[1])) ? 2 : 
-                       (match.getDay().equals(MatchDay.WEEK_DAYS[2])) ? 3 : 0;
+            int prio = (match.getDay().equals(this.WEEK_DAYS[0])) ? 1 : 
+                       (match.getDay().equals(this.WEEK_DAYS[1])) ? 2 : 
+                       (match.getDay().equals(this.WEEK_DAYS[2])) ? 3 : 0;
             aux.push(match, prio);
         }
         this.matches = aux;
         return isPlaying;
+	}
 	
 	public void playMatchDay() {
-		for (int i = 0; i < this.matches.size; i++){
+		for (int i = 0; i < this.matches.size(); i++){
 			Match playingMatch = (Match)(this.matches.poll()); 
 			playingMatch.simulate();
 			matchesPlayed.insertLast(playingMatch);
@@ -71,8 +72,8 @@ public class MatchDay {
         int day = (match.getAwayTeam().hasPlayedOnSunday() || match.getHomeTeam().hasPlayedOnSunday()) ? 
                     (int)(Math.random()*3) : 
                     (int)(Math.random()*4);
-        match.setDay(Matchday.WEEK_DAYS[day]);
-        if (match.getDay().equals(Matchday.WEEK_DAYS[2])){
+        match.setDay(this.WEEK_DAYS[day]);
+        if (match.getDay().equals(this.WEEK_DAYS[2])){
             match.getAwayTeam().setHasPlayedOnSunday(true);
             match.getHomeTeam().setHasPlayedOnSunday(true);
         }

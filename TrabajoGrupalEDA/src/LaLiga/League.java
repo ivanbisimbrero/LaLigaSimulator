@@ -1,1 +1,1 @@
-import LaLiga
+package LaLiga;
