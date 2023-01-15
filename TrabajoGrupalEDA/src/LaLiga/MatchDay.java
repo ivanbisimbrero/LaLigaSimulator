@@ -4,7 +4,7 @@ import structures.*;
 
 public class MatchDay {
 	
-	final String[] WEEK_DAYS = {"Friday", "Saturday", "Sunday", "Thursday"};
+	static final String[] WEEK_DAYS = {"Friday", "Saturday", "Sunday", "Thursday"};
 	int leg;
 	int matchDayNumber;
 	PriorityQueue matches;
