@@ -1,0 +1,294 @@
+All Stars : 29400000€
+Real Zaragoza : 269000000€
+Athletic Club de Bilbao : 278000000€
+Real Madrid : 283000000€
+RCD Mallorca : 286000000€
+Cádiz CF : 286000000€
+Getafe CD : 294000000€
+CD Celta de Vigo : 297000000€
+Sevilla FC : 299000000€
+Valencia CF : 299000000€
+Atlético de Madrid : 299000000€
+RCD Espanyol : 300000000€
+Villarreal : 303000000€
+Real Sociedad : 305000000€
+Rayo Vallecano de Madrid : 305000000€
+UD Almería : 313000000€
+Real Valladolid : 315000000€
+FC Barcelona : 316000000€
+Sociedad Deportiva Huesca : 321000000€
+Real Betis Balompié : 327000000€
+CA Osasuna : 331000000€
+Swapping position 0 with position 7.
+Swapping position 1 with position 17.
+Swapping position 2 with position 2.
+Swapping position 3 with position 6.
+Swapping position 4 with position 18.
+Swapping position 5 with position 14.
+Swapping position 6 with position 8.
+Swapping position 7 with position 18.
+Swapping position 8 with position 7.
+Swapping position 9 with position 2.
+Swapping position 10 with position 6.
+Swapping position 11 with position 8.
+Swapping position 12 with position 7.
+Swapping position 13 with position 11.
+Swapping position 14 with position 1.
+Swapping position 15 with position 1.
+Swapping position 16 with position 17.
+Swapping position 17 with position 13.
+Swapping position 18 with position 14.
+Swapping position 19 with position 18.
+Swapping position 20 with position 6.
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Matchday added. Size = 1. Number of matches of the new MatchDay = 10
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Matchday added. Size = 2. Number of matches of the new MatchDay = 10
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Matchday added. Size = 3. Number of matches of the new MatchDay = 10
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Matchday added. Size = 4. Number of matches of the new MatchDay = 10
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Matchday added. Size = 5. Number of matches of the new MatchDay = 10
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Matchday added. Size = 6. Number of matches of the new MatchDay = 10
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Matchday added. Size = 7. Number of matches of the new MatchDay = 10
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Matchday added. Size = 8. Number of matches of the new MatchDay = 10
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Match ALM -  - RMA added
+Matchday added. Size = 9. Number of matches of the new MatchDay = 10
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Match CEL -  - RSO added
+Matchday added. Size = 10. Number of matches of the new MatchDay = 10
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Match ATM -  - SEV added
+Matchday added. Size = 11. Number of matches of the new MatchDay = 10
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Match FCB -  - ATH added
+Matchday added. Size = 12. Number of matches of the new MatchDay = 10
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Match BET -  - RCD added
+Matchday added. Size = 13. Number of matches of the new MatchDay = 10
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Match MAL -  - VLL added
+Matchday added. Size = 14. Number of matches of the new MatchDay = 10
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Match RZA -  - OSA added
+Matchday added. Size = 15. Number of matches of the new MatchDay = 10
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Match CAD -  - RVM added
+Matchday added. Size = 16. Number of matches of the new MatchDay = 10
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Match AST -  - SDH added
+Matchday added. Size = 17. Number of matches of the new MatchDay = 10
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Match RVA -  - GET added
+Matchday added. Size = 18. Number of matches of the new MatchDay = 10
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Match RMA -  - VCF added
+Matchday added. Size = 19. Number of matches of the new MatchDay = 10
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Match RSO -  - ALM added
+Matchday added. Size = 20. Number of matches of the new MatchDay = 10
+Match ALM -  - RMA added
+Match VCF -  - RVA added
+Match GET -  - AST added
+Match SDH -  - CAD added
+Match RVM -  - RZA added
+Match OSA -  - MAL added
+Match VLL -  - BET added
+Match RCD -  - FCB added
+Match ATH -  - ATM added
+Match SEV -  - CEL added
+Matchday added. Size = 21. Number of matches of the new MatchDay = 10
+CEL - Home: 20, Away: 20
+ALM - Home: 20, Away: 20
+VCF - Home: 20, Away: 20
+GET - Home: 20, Away: 20
+SDH - Home: 20, Away: 20
+RVM - Home: 20, Away: 20
+OSA - Home: 20, Away: 20
+VLL - Home: 20, Away: 20
+RCD - Home: 20, Away: 20
+ATH - Home: 20, Away: 20
+SEV - Home: 20, Away: 20
+RSO - Home: 20, Away: 20
+RMA - Home: 20, Away: 20
+RVA - Home: 20, Away: 20
+AST - Home: 20, Away: 20
+CAD - Home: 20, Away: 20
+RZA - Home: 20, Away: 20
+MAL - Home: 20, Away: 20
+BET - Home: 20, Away: 20
+FCB - Home: 20, Away: 20
+ATM - Home: 20, Away: 20
