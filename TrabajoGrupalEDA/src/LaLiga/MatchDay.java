@@ -42,7 +42,7 @@ public class MatchDay {
 	}
 	
 	public int getMatchDayNumber() {
-		return matchDayNumber;
+		return matchdayNumber;
 	}
 	
 	public PriorityQueue getScheduledMatches() {
@@ -94,14 +94,14 @@ public class MatchDay {
         }
 	}
 	
-	private int setDayOfMatches(Match match) {
+	public void setDayOfMatches() {
         boolean hasThursday = false;
         boolean hasFriday = false;
         boolean hasSaturday = false;
         boolean hasSunday = false;
         Match match;
         while(!this.matches.isEmpty()){
-            match = (Match) this.matches.remove(this.matches.get(0));
+            match = (Match) this.matches.remove(this.matches.get(0).data);
             int day;
             if(!hasThursday && !((match.getAwayTeam().hasPlayedOnSunday() || match.getHomeTeam().hasPlayedOnSunday()))){
                 day = 3;
@@ -120,10 +120,7 @@ public class MatchDay {
                 hasSunday = true;
             }
             else day = (match.getAwayTeam().hasPlayedOnSunday() || match.getHomeTeam().hasPlayedOnSunday()) ? 
-                        (int)(Math.random()*3) : 
-                    (int)(Math.random()*3) : 
-                        (int)(Math.random()*3) : 
-                        (int)(Math.random()*4);
+                        (int)(Math.random()*3) : (int)(Math.random()*4);
             match.setDay(MatchDay.WEEK_DAYS[day]);
             if (match.getDay().equals(MatchDay.WEEK_DAYS[2])){
                 match.getAwayTeam().setHasPlayedOnSunday(true);
@@ -158,7 +155,7 @@ public class MatchDay {
         SingleLinkedList newMatchesList = new SingleLinkedList();
         for (int i = 0; i < this.matches.size;++i){
             newMatchesList.insertHead(new Match(
-                    ((Match)this.matches.get(i)).getAwayTeam(), ((Match)this.matches.get(i)).getHomeTeam())
+                    ((Match)this.matches.get(i).data).getAwayTeam(), ((Match)this.matches.get(i).data).getHomeTeam())
             );
         }
         this.scheduledMatches = oldMatches;

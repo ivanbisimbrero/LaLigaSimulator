@@ -6,6 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import helpers.SortingLibrary;
+
 import java.util.Random;
 import structures.HashMap;
 import structures.SingleLinkedList;
@@ -91,12 +94,12 @@ public class League {
             Team[] aways = new Team[(myTeams.length%2==0)? myTeams.length/2:myTeams.length/2 + 1];
             homies[0] = fixed;
             for (int i = 0; i < teamRotation.size/2; i++){
-                homies[i+1] = (Team)teamRotation.get(i);
+                homies[i+1] = (Team)teamRotation.get(i).data;
             }
             //for(Team t : homies) System.out.print(t.getShortName() + "\t");
             //System.out.println();
             for (int i = teamRotation.size/2; i < teamRotation.size;i++){
-                aways[i-teamRotation.size/2] = (Team)teamRotation.get(i);
+                aways[i-teamRotation.size/2] = (Team)teamRotation.get(i).data;
             }
             //for(Team t : aways) System.out.print(t.getShortName() + "\t");
             //System.out.println();
@@ -115,24 +118,24 @@ public class League {
             } 
             this.matchdays.insertLast(matchday);
             logOut.write("Matchday added. Size = " + this.matchdays.size + ". Number of matches of the new MatchDay = " + matchday.getNumberOfMatches() + "\n");
-            teamRotation.insertHead(teamRotation.remove(teamRotation.get(teamRotation.size-1)));
+            Team toRemove = (Team)(teamRotation.get(teamRotation.size-1).data);
+            teamRotation.insertHead(teamRotation.remove(toRemove));
         }while(teamRotation.first.data!=restartTeam);
         
         //First Leg correctly generated
         
         SingleLinkedList secondLeg = new SingleLinkedList();
         for (int i = 0; i < this.matchdays.size; i++){
-            MatchDay secondLegMatchDay = ((MatchDay)this.matchdays.get(i)).cloneOpposite(i + this.matchdays.size + 1);
+            MatchDay secondLegMatchDay = ((MatchDay)this.matchdays.get(i).data).cloneOpposite(i + this.matchdays.size + 1);
             secondLeg.insertHead(secondLegMatchDay);
         }
        this.matchdays.shuffle();
        secondLeg.shuffle();
        for (int i = 0; i < secondLeg.size; i++){
-           this.matchdays.insertLast(secondLeg.get(i));
+           this.matchdays.insertLast(secondLeg.get(i).data);
        }
        for(int i = 0; i < this.matchdays.size; i++){
-           MatchDay matchday = (MatchDay) this.matchdays.get(i);
-           matchday.setMatchdayNumber(i+1);
+           MatchDay matchday = (MatchDay) this.matchdays.get(i).data;
            matchday.setDayOfMatches();
        }
            
@@ -262,6 +265,9 @@ public class League {
         }
 
         printStandings(); // When the league is finished it prints the standings
+        } catch(Exception e){
+        	System.err.println(e.getMessage());
+        }
     }
 }
 

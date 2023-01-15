@@ -281,7 +281,7 @@ public class SingleLinkedList {
 		SingleLinkedList shuffled = new SingleLinkedList();
 		while (!isEmpty()){
 			int index = (int)(Math.random()*this.size);
-			shuffled.insertHead(this.get(index));
+			shuffled.insertHead(this.get(index).data);
 			this.remove(shuffled.first.data);
 		}
 		this.first = shuffled.first;
