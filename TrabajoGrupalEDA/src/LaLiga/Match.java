@@ -3,8 +3,9 @@ package LaLiga;
 import java.util.Random;
 
 public class Match {
-	private final int HIGH_DIF=20;
-	private final int LOW_DIF=5;
+	private static final int HIGH_DIFF = 20000000;
+    private static final int LOW_DIFF = 5000000;
+    private static final Random RAND = new Random(System.currentTimeMillis());
 	private int awayScore;
 	private Team awayTeam;
 	private String day;
