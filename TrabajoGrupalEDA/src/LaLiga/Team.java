@@ -23,6 +23,8 @@ public class Team implements Comparable<Team>{
     
     private boolean active;
     private boolean hasPlayedOnSunday;
+    private int matchesHome;
+    private int matchesAway;
 
     
 
@@ -44,7 +46,8 @@ public class Team implements Comparable<Team>{
         this.goalsAgainst = 0;
         this.hasPlayedOnSunday = false;
         this.active = true;
-        //If no short name is given, we need to set one
+        this.matchesHome = 0;
+        this.matchesAway = 0;
         int i = 0;
         String shorterName = "";
         for (int j = 0; i < this.name.length() && i < 3; j++){
@@ -76,8 +79,46 @@ public class Team implements Comparable<Team>{
         this.goalsAgainst = 0;
         this.hasPlayedOnSunday = false;
         this.active = true;
+        this.matchesHome = 0;
+        this.matchesAway = 0;
     }
 
+
+    /**
+     * Adds a Home match for the team
+     * @author Antonio Gabarrús Nerin(alu.142920)
+     */
+    public void addMatchHome(){
+        this.matchesHome++;
+    }
+
+    /**
+     * Adds an Away match for the team
+     * @author Antonio Gabarrús Nerin(alu.142920)
+     */
+    public void addMatchAway(){
+        this.matchesAway++;
+    }
+
+    /**
+     * Retritves the Home matches for the team
+     * @author Antonio Gabarrús Nerin(alu.142920)
+     * @return The number of home matches of the team
+     */
+    public int getMatchesHome() {
+        return matchesHome;
+    }
+
+    /**
+     * Retrives the Away matches for the team
+     * @author Antonio Gabarrús Nerin(alu.142920)
+     * @return The number of away matches of the team
+     */
+    public int getMatchesAway() {
+        return matchesAway;
+    }
+    
+    
     /**
      * @author Antonio Gabarrús Nerin (alu142920)
      * @description Adds a win and the corresponding points to the team
@@ -135,7 +176,7 @@ public class Team implements Comparable<Team>{
      * @return true if the player has been added to the team, false otherwise
      */
     public boolean addPlayer(Player p){
-        if (this.players.contains(p) || this.players.size >= 11) return false;
+        if (this.players.contains(p) || this.players.size >= 25) return false;
         this.players.insertHead(p);
         this.budget += p.getCost();
         return true;

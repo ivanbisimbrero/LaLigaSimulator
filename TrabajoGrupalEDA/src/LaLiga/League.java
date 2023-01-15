@@ -67,32 +67,86 @@ public class League {
         return false;
     }
 
-    /**
-     * Method which gets the matches of a leg 
-     * @param myTeams arrray of teams
-     * @param leg number of the leg
-     * @return List with all the games
-     */
-    public SingleLinkedList getMatches(Team[] myTeams){
-        SingleLinkedList matches = new SingleLinkedList();
-            for (int i = 0; i < myTeams.length; ++i) {
-                Team homeTeam = myTeams[i];
-                for (int j = i + 1; j < myTeams.length; ++j) {
-                    matches.insertLast(new Match(homeTeam, myTeams[j]));
-                }
+   public void leagueSetup(Team[] myTeams, FileWriter logOut) throws IOException
+   {
+        //CircularList teamRotation = new CircularList();
+        SingleLinkedList teamRotation = new SingleLinkedList();
+        Team fixed = myTeams[0];
+        for (int i = myTeams.length - 1; i > 0 ;--i){
+            teamRotation.insertHead(myTeams[i]);
+        }
+        if (teamRotation.size%2 == 0) {
+            teamRotation.insertHead(fixed);
+            fixed = null;//The team facing null is the team that rests
+        }
+        Team restartTeam = (Team)teamRotation.first.data;
+        int matchdayNumber = 1;
+        
+        
+        do{
+            Team[] homies = new Team[(myTeams.length%2==0)? myTeams.length/2:myTeams.length/2 + 1];
+            Team[] aways = new Team[(myTeams.length%2==0)? myTeams.length/2:myTeams.length/2 + 1];
+            homies[0] = fixed;
+            for (int i = 0; i < teamRotation.size/2; i++){
+                homies[i+1] = (Team)teamRotation.get(i);
             }
-        return matches;
+            //for(Team t : homies) System.out.print(t.getShortName() + "\t");
+            //System.out.println();
+            for (int i = teamRotation.size/2; i < teamRotation.size;i++){
+                aways[i-teamRotation.size/2] = (Team)teamRotation.get(i);
+            }
+            //for(Team t : aways) System.out.print(t.getShortName() + "\t");
+            //System.out.println();
+            
+            MatchDay matchday = new MatchDay(matchdayNumber++);
+            
+            for (int i = 0; i < homies.length; ++i){
+                if(homies[i] != null && aways[i] == null) matchday.setRestingTeam(homies[i]);
+                else if(homies[i] == null && aways[i] != null) matchday.setRestingTeam(aways[i]);
+                else{
+                    Match newMatch = new Match(homies[i], aways[i]);
+                    if(matchday.addMatch(newMatch)) logOut.write("Match " + newMatch + " added");
+                    else logOut.write("Match " + newMatch + " not added");
+                    logOut.write("\n");
+                }
+            } 
+            this.matchdays.insertLast(matchday);
+            logOut.write("Matchday added. Size = " + this.matchdays.size + ". Number of matches of the new MatchDay = " + matchday.getNumberOfMatches() + "\n");
+            teamRotation.insertHead(teamRotation.remove(teamRotation.get(teamRotation.size-1)));
+        }while(teamRotation.first.data!=restartTeam);
+        
+        //First Leg correctly generated
+        
+        SingleLinkedList secondLeg = new SingleLinkedList();
+        for (int i = 0; i < this.matchdays.size; i++){
+            MatchDay secondLegMatchDay = ((MatchDay)this.matchdays.get(i)).cloneOpposite(i + this.matchdays.size + 1);
+            secondLeg.insertHead(secondLegMatchDay);
+        }
+       this.matchdays.shuffle();
+       secondLeg.shuffle();
+       for (int i = 0; i < secondLeg.size; i++){
+           this.matchdays.insertLast(secondLeg.get(i));
+       }
+       for(int i = 0; i < this.matchdays.size; i++){
+           MatchDay matchday = (MatchDay) this.matchdays.get(i);
+           matchday.setMatchdayNumber(i+1);
+           matchday.setDayOfMatches();
+       }
+           
+        
+        
     }
 
     /**
      * Method which randomly shuffles a team array
      * @param myTeams the teams we want to shuffle
      */
-    public void shuffle(Team[] myTeams){
+    public void shuffle(Team[] myTeams, FileWriter logOut)throws IOException{
         if(myTeams!=null){
-            Random rand = new Random();
+            Random rand = new Random(System.currentTimeMillis());
             for(int i=0; i<myTeams.length; i++){
                 int swap = rand.nextInt(myTeams.length);
+                logOut.write("Swapping position " + i + " with position " + swap + ".\n");
                 Team aux = myTeams[i];
                 myTeams[i] = myTeams[swap];
                 myTeams[swap] = aux;
@@ -132,72 +186,8 @@ public class League {
         }
     }
 
-    /**
-     * Method which creates the matchdays 
-     * @param myTeams array of teams 
-     * @param first list of the games 
-     */
-    public void matchDaysSetup(Team[] myTeams, SingleLinkedList matches){
-        SingleLinkedList matchdaysSetup = new SingleLinkedList();
-        SingleLinkedList secondLegMatchdaysSetup = new SingleLinkedList();
-        int indexOfResting = (myTeams.length%2== 0) ? -1 : myTeams.length - 1;
-        
-        int numberOfMatchDays = myTeams.length;
-        if (myTeams.length%2 == 0) --numberOfMatchDays;
-        
-        for (int i = 0; i < numberOfMatchDays; ++i){
-            Matchday matchday = new Matchday(0, i+1);
-            if (indexOfResting != -1) matchday.setRestingTeam(myTeams[indexOfResting--]);
-            for (int j = 0; j < matches.size;j++){
-                Match match = (Match)matches.get(j).data;
-                if(matchday.addMatch(match)){
-                    matches.remove(match);
-                    --j;
-                }
-            }
-            matchdaysSetup.insertLast(matchday);
-        }
-        System.out.println("Matches size = " + matches.size);
-        
-        /*
-        //Volcado de full copies de la primera tanda al setup de la segunda
-        for (int i = 0; i < matchdaysSetup.size; ++i){
-            Matchday secondLegMatchday = ((Matchday)matchdaysSetup.get(i)).getOppositeMatchday(1,((Matchday)matchdaysSetup.get(i)).getMatchdayNumber()+numberOfMatchDays);
-            secondLegMatchdaysSetup.insertLast(secondLegMatchday);
-        }
-        
-        for(int i = 0; i < secondLegMatchdaysSetup.size; i++){
-            matchdaysSetup.insertLast(secondLegMatchdaysSetup.get(i));
-        }
-        */
-        
-        //limpiamos la lista de la tanda y la rellenamos con full copies de la lista completa (actualmente contiene la tanda real
-        
-        /*
-        int numberOfMatchdaysPerLeg = (myTeams.length % 2 == 1) ? myTeams.length : myTeams.length - 1; //myTeams.length - (myTeams.length + 1) %2
-        int leg = 1;
-        SingleLinkedList activeMatchList = secondLegMatches;
-        for (int i = numberOfMatchdaysPerLeg; i > 0; --i) { // We are creating them backawards as inserting head in list is quicker than inserting last
-            Matchday matchday = new Matchday(leg, i);
-            matchdays.insertHead(matchday);
-            matchday.setRestingTeam((myTeams.length % 2 == 0) ? null : myTeams[i - 1]);
-            for (int j = 0; j < activeMatchList.size; ++j) {
-                Match nextMatch = (Match) activeMatchList.get(j);
-                if (matchday.addMatch(nextMatch)) {
-                    activeMatchList.remove(nextMatch);
-                    --j; //Because we are removing an element from the list, we have to correct the j to the previous element
-                }
-            }
-
-            if (i == 1 && leg == 1) {
-                i = numberOfMatchdaysPerLeg + 1;
-                leg = 0;
-                activeMatchList = firstLegMatches;
-            }
-        }*/
-        
-        this.matchdays = matchdaysSetup;
-    }
+    
+    
 
     /**
      * Method which displays the league standings
@@ -242,17 +232,30 @@ public class League {
      * Method which simulates all of the games in the league and displays the league table at the end of the season
      */
     public void simulateSession(){
+        // Schedule matches for the season
         Team[] myTeams = teams.getValuesArray();
-        shuffle(myTeams);
-        SingleLinkedList firstFixtures =getMatches(myTeams);// Generate the matches in the first leg
+        Arrays.sort(myTeams, (Team t1, Team t2) -> t1.getBudget() - t2.getBudget());
+        try{
+            File logsDir = new File("logs");
+            File logFile = new File(logsDir, "Execution Log - " + System.currentTimeMillis()+".txt");
+            if(!logFile.exists()||!logFile.isFile()) logFile.createNewFile();
+            FileWriter logOut = new FileWriter(logFile);
+            for(Team team:myTeams)
+                logOut.write(team.getName() + " : " + team.getBudget() + "€\n");
+            
+        shuffle(myTeams,logOut);
 
-        
-        matchDaysSetup(myTeams, firstFixtures);
+        this.leagueSetup(myTeams,logOut);
 
         // Should show the games played on screen
         for(int i=0; i<matchdays.size; i++){
             MatchDay auxMatchDay = (MatchDay) matchdays.get(i).data;
             auxMatchDay.playMatchDay();
+            try{
+                Thread.sleep(500);
+            } catch(InterruptedException ex){
+                
+            }
         }
 
         printStandings(); // When the league is finished it prints the standings
