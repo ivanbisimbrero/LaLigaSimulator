@@ -1,0 +1,501 @@
+Name;Age;Cost;Position;Team
+Jugador-0;21;19000000;MC;FC Barcelona
+Jugador-1;23;13000000;MC;FC Barcelona
+Jugador-2;21;10000000;MC;FC Barcelona
+Jugador-3;26;15000000;MC;FC Barcelona
+Jugador-4;25;7000000;MC;FC Barcelona
+Jugador-5;25;15000000;MC;FC Barcelona
+Jugador-6;26;8000000;MC;FC Barcelona
+Jugador-7;29;14000000;MC;FC Barcelona
+Jugador-8;27;19000000;MC;FC Barcelona
+Jugador-9;23;8000000;MC;FC Barcelona
+Jugador-10;23;12000000;MC;FC Barcelona
+Jugador-11;25;16000000;MC;FC Barcelona
+Jugador-12;22;13000000;MC;FC Barcelona
+Jugador-13;25;16000000;MC;FC Barcelona
+Jugador-14;23;5000000;MC;FC Barcelona
+Jugador-15;25;12000000;MC;FC Barcelona
+Jugador-16;27;14000000;MC;FC Barcelona
+Jugador-17;29;10000000;MC;FC Barcelona
+Jugador-18;24;6000000;MC;FC Barcelona
+Jugador-19;24;17000000;MC;FC Barcelona
+Jugador-20;20;17000000;MC;FC Barcelona
+Jugador-21;22;14000000;MC;FC Barcelona
+Jugador-22;24;11000000;MC;FC Barcelona
+Jugador-23;21;5000000;MC;FC Barcelona
+Jugador-24;22;17000000;MC;FC Barcelona
+Jugador-25;22;15000000;MC;Real Betis Balompié
+Jugador-26;20;12000000;MC;Real Betis Balompié
+Jugador-27;24;9000000;MC;Real Betis Balompié
+Jugador-28;25;7000000;MC;Real Betis Balompié
+Jugador-29;22;19000000;MC;Real Betis Balompié
+Jugador-30;20;11000000;MC;Real Betis Balompié
+Jugador-31;26;11000000;MC;Real Betis Balompié
+Jugador-32;28;13000000;MC;Real Betis Balompié
+Jugador-33;24;16000000;MC;Real Betis Balompié
+Jugador-34;24;16000000;MC;Real Betis Balompié
+Jugador-35;27;5000000;MC;Real Betis Balompié
+Jugador-36;27;12000000;MC;Real Betis Balompié
+Jugador-37;25;11000000;MC;Real Betis Balompié
+Jugador-38;28;14000000;MC;Real Betis Balompié
+Jugador-39;24;18000000;MC;Real Betis Balompié
+Jugador-40;25;10000000;MC;Real Betis Balompié
+Jugador-41;24;15000000;MC;Real Betis Balompié
+Jugador-42;29;9000000;MC;Real Betis Balompié
+Jugador-43;29;9000000;MC;Real Betis Balompié
+Jugador-44;20;9000000;MC;Real Betis Balompié
+Jugador-45;27;14000000;MC;Real Betis Balompié
+Jugador-46;27;8000000;MC;Real Betis Balompié
+Jugador-47;23;17000000;MC;Real Betis Balompié
+Jugador-48;26;7000000;MC;Real Betis Balompié
+Jugador-49;28;9000000;MC;Real Betis Balompié
+Jugador-50;29;6000000;MC;Sevilla FC
+Jugador-51;28;15000000;MC;Sevilla FC
+Jugador-52;26;7000000;MC;Sevilla FC
+Jugador-53;22;10000000;MC;Sevilla FC
+Jugador-54;24;15000000;MC;Sevilla FC
+Jugador-55;23;18000000;MC;Sevilla FC
+Jugador-56;23;7000000;MC;Sevilla FC
+Jugador-57;28;7000000;MC;Sevilla FC
+Jugador-58;28;5000000;MC;Sevilla FC
+Jugador-59;29;11000000;MC;Sevilla FC
+Jugador-60;28;7000000;MC;Sevilla FC
+Jugador-61;27;7000000;MC;Sevilla FC
+Jugador-62;21;10000000;MC;Sevilla FC
+Jugador-63;21;16000000;MC;Sevilla FC
+Jugador-64;24;19000000;MC;Sevilla FC
+Jugador-65;25;18000000;MC;Sevilla FC
+Jugador-66;20;8000000;MC;Sevilla FC
+Jugador-67;24;16000000;MC;Sevilla FC
+Jugador-68;20;18000000;MC;Sevilla FC
+Jugador-69;25;6000000;MC;Sevilla FC
+Jugador-70;20;14000000;MC;Sevilla FC
+Jugador-71;20;12000000;MC;Sevilla FC
+Jugador-72;24;19000000;MC;Sevilla FC
+Jugador-73;27;13000000;MC;Sevilla FC
+Jugador-74;28;13000000;MC;Sevilla FC
+Jugador-75;22;9000000;MC;RCD Espanyol
+Jugador-76;25;14000000;MC;RCD Espanyol
+Jugador-77;26;6000000;MC;RCD Espanyol
+Jugador-78;29;18000000;MC;RCD Espanyol
+Jugador-79;29;8000000;MC;RCD Espanyol
+Jugador-80;22;7000000;MC;RCD Espanyol
+Jugador-81;24;6000000;MC;RCD Espanyol
+Jugador-82;26;19000000;MC;RCD Espanyol
+Jugador-83;26;11000000;MC;RCD Espanyol
+Jugador-84;23;13000000;MC;RCD Espanyol
+Jugador-85;27;18000000;MC;RCD Espanyol
+Jugador-86;21;14000000;MC;RCD Espanyol
+Jugador-87;26;7000000;MC;RCD Espanyol
+Jugador-88;28;19000000;MC;RCD Espanyol
+Jugador-89;29;12000000;MC;RCD Espanyol
+Jugador-90;28;19000000;MC;RCD Espanyol
+Jugador-91;27;6000000;MC;RCD Espanyol
+Jugador-92;24;12000000;MC;RCD Espanyol
+Jugador-93;28;12000000;MC;RCD Espanyol
+Jugador-94;22;11000000;MC;RCD Espanyol
+Jugador-95;23;13000000;MC;RCD Espanyol
+Jugador-96;28;11000000;MC;RCD Espanyol
+Jugador-97;27;8000000;MC;RCD Espanyol
+Jugador-98;23;13000000;MC;RCD Espanyol
+Jugador-99;25;14000000;MC;RCD Espanyol
+Jugador-100;24;17000000;MC;Real Sociedad
+Jugador-101;20;19000000;MC;Real Sociedad
+Jugador-102;25;10000000;MC;Real Sociedad
+Jugador-103;22;8000000;MC;Real Sociedad
+Jugador-104;23;9000000;MC;Real Sociedad
+Jugador-105;28;11000000;MC;Real Sociedad
+Jugador-106;29;7000000;MC;Real Sociedad
+Jugador-107;23;15000000;MC;Real Sociedad
+Jugador-108;23;17000000;MC;Real Sociedad
+Jugador-109;21;8000000;MC;Real Sociedad
+Jugador-110;20;11000000;MC;Real Sociedad
+Jugador-111;26;18000000;MC;Real Sociedad
+Jugador-112;28;14000000;MC;Real Sociedad
+Jugador-113;20;13000000;MC;Real Sociedad
+Jugador-114;25;11000000;MC;Real Sociedad
+Jugador-115;25;5000000;MC;Real Sociedad
+Jugador-116;20;16000000;MC;Real Sociedad
+Jugador-117;25;19000000;MC;Real Sociedad
+Jugador-118;23;12000000;MC;Real Sociedad
+Jugador-119;22;8000000;MC;Real Sociedad
+Jugador-120;27;12000000;MC;Real Sociedad
+Jugador-121;20;13000000;MC;Real Sociedad
+Jugador-122;22;14000000;MC;Real Sociedad
+Jugador-123;26;19000000;MC;Real Sociedad
+Jugador-124;28;17000000;MC;Real Sociedad
+Jugador-125;29;6000000;MC;Real Madrid
+Jugador-126;24;9000000;MC;Real Madrid
+Jugador-127;25;5000000;MC;Real Madrid
+Jugador-128;29;10000000;MC;Real Madrid
+Jugador-129;21;11000000;MC;Real Madrid
+Jugador-130;29;15000000;MC;Real Madrid
+Jugador-131;24;6000000;MC;Real Madrid
+Jugador-132;20;17000000;MC;Real Madrid
+Jugador-133;20;7000000;MC;Real Madrid
+Jugador-134;26;19000000;MC;Real Madrid
+Jugador-135;21;9000000;MC;Real Madrid
+Jugador-136;21;10000000;MC;Real Madrid
+Jugador-137;29;15000000;MC;Real Madrid
+Jugador-138;24;9000000;MC;Real Madrid
+Jugador-139;21;17000000;MC;Real Madrid
+Jugador-140;22;11000000;MC;Real Madrid
+Jugador-141;21;5000000;MC;Real Madrid
+Jugador-142;22;19000000;MC;Real Madrid
+Jugador-143;28;11000000;MC;Real Madrid
+Jugador-144;23;12000000;MC;Real Madrid
+Jugador-145;27;7000000;MC;Real Madrid
+Jugador-146;25;19000000;MC;Real Madrid
+Jugador-147;29;15000000;MC;Real Madrid
+Jugador-148;20;11000000;MC;Real Madrid
+Jugador-149;27;7000000;MC;Real Madrid
+Jugador-150;22;16000000;MC;Valencia CF
+Jugador-151;28;6000000;MC;Valencia CF
+Jugador-152;27;16000000;MC;Valencia CF
+Jugador-153;22;10000000;MC;Valencia CF
+Jugador-154;28;11000000;MC;Valencia CF
+Jugador-155;27;15000000;MC;Valencia CF
+Jugador-156;23;5000000;MC;Valencia CF
+Jugador-157;20;5000000;MC;Valencia CF
+Jugador-158;22;15000000;MC;Valencia CF
+Jugador-159;22;5000000;MC;Valencia CF
+Jugador-160;20;15000000;MC;Valencia CF
+Jugador-161;28;5000000;MC;Valencia CF
+Jugador-162;28;17000000;MC;Valencia CF
+Jugador-163;29;18000000;MC;Valencia CF
+Jugador-164;23;9000000;MC;Valencia CF
+Jugador-165;28;7000000;MC;Valencia CF
+Jugador-166;26;19000000;MC;Valencia CF
+Jugador-167;24;16000000;MC;Valencia CF
+Jugador-168;21;9000000;MC;Valencia CF
+Jugador-169;22;9000000;MC;Valencia CF
+Jugador-170;22;5000000;MC;Valencia CF
+Jugador-171;26;19000000;MC;Valencia CF
+Jugador-172;24;13000000;MC;Valencia CF
+Jugador-173;22;5000000;MC;Valencia CF
+Jugador-174;26;7000000;MC;Valencia CF
+Jugador-175;24;18000000;MC;Villarreal
+Jugador-176;28;6000000;MC;Villarreal
+Jugador-177;22;12000000;MC;Villarreal
+Jugador-178;25;9000000;MC;Villarreal
+Jugador-179;21;10000000;MC;Villarreal
+Jugador-180;27;11000000;MC;Villarreal
+Jugador-181;25;8000000;MC;Villarreal
+Jugador-182;27;18000000;MC;Villarreal
+Jugador-183;25;17000000;MC;Villarreal
+Jugador-184;27;18000000;MC;Villarreal
+Jugador-185;29;13000000;MC;Villarreal
+Jugador-186;29;15000000;MC;Villarreal
+Jugador-187;25;10000000;MC;Villarreal
+Jugador-188;25;6000000;MC;Villarreal
+Jugador-189;21;17000000;MC;Villarreal
+Jugador-190;22;18000000;MC;Villarreal
+Jugador-191;21;5000000;MC;Villarreal
+Jugador-192;27;18000000;MC;Villarreal
+Jugador-193;22;15000000;MC;Villarreal
+Jugador-194;26;17000000;MC;Villarreal
+Jugador-195;24;6000000;MC;Villarreal
+Jugador-196;22;11000000;MC;Villarreal
+Jugador-197;26;13000000;MC;Villarreal
+Jugador-198;22;19000000;MC;Villarreal
+Jugador-199;27;5000000;MC;Villarreal
+Jugador-200;23;13000000;MC;CD Celta de Vigo
+Jugador-201;26;7000000;MC;CD Celta de Vigo
+Jugador-202;28;10000000;MC;CD Celta de Vigo
+Jugador-203;29;5000000;MC;CD Celta de Vigo
+Jugador-204;26;18000000;MC;CD Celta de Vigo
+Jugador-205;21;7000000;MC;CD Celta de Vigo
+Jugador-206;21;14000000;MC;CD Celta de Vigo
+Jugador-207;23;19000000;MC;CD Celta de Vigo
+Jugador-208;22;11000000;MC;CD Celta de Vigo
+Jugador-209;26;19000000;MC;CD Celta de Vigo
+Jugador-210;22;9000000;MC;CD Celta de Vigo
+Jugador-211;28;5000000;MC;CD Celta de Vigo
+Jugador-212;26;6000000;MC;CD Celta de Vigo
+Jugador-213;23;15000000;MC;CD Celta de Vigo
+Jugador-214;22;13000000;MC;CD Celta de Vigo
+Jugador-215;26;9000000;MC;CD Celta de Vigo
+Jugador-216;26;19000000;MC;CD Celta de Vigo
+Jugador-217;22;16000000;MC;CD Celta de Vigo
+Jugador-218;26;13000000;MC;CD Celta de Vigo
+Jugador-219;26;18000000;MC;CD Celta de Vigo
+Jugador-220;23;18000000;MC;CD Celta de Vigo
+Jugador-221;20;15000000;MC;CD Celta de Vigo
+Jugador-222;29;13000000;MC;CD Celta de Vigo
+Jugador-223;29;9000000;MC;CD Celta de Vigo
+Jugador-224;24;9000000;MC;CD Celta de Vigo
+Jugador-225;23;10000000;MC;Real Valladolid
+Jugador-226;22;14000000;MC;Real Valladolid
+Jugador-227;26;6000000;MC;Real Valladolid
+Jugador-228;27;18000000;MC;Real Valladolid
+Jugador-229;23;5000000;MC;Real Valladolid
+Jugador-230;24;14000000;MC;Real Valladolid
+Jugador-231;25;8000000;MC;Real Valladolid
+Jugador-232;24;19000000;MC;Real Valladolid
+Jugador-233;28;7000000;MC;Real Valladolid
+Jugador-234;20;5000000;MC;Real Valladolid
+Jugador-235;23;6000000;MC;Real Valladolid
+Jugador-236;29;7000000;MC;Real Valladolid
+Jugador-237;23;15000000;MC;Real Valladolid
+Jugador-238;25;19000000;MC;Real Valladolid
+Jugador-239;28;18000000;MC;Real Valladolid
+Jugador-240;29;11000000;MC;Real Valladolid
+Jugador-241;27;15000000;MC;Real Valladolid
+Jugador-242;23;16000000;MC;Real Valladolid
+Jugador-243;26;11000000;MC;Real Valladolid
+Jugador-244;28;18000000;MC;Real Valladolid
+Jugador-245;23;18000000;MC;Real Valladolid
+Jugador-246;23;6000000;MC;Real Valladolid
+Jugador-247;24;5000000;MC;Real Valladolid
+Jugador-248;20;13000000;MC;Real Valladolid
+Jugador-249;26;17000000;MC;Real Valladolid
+Jugador-250;24;14000000;MC;Athletic Club de Bilbao
+Jugador-251;23;14000000;MC;Athletic Club de Bilbao
+Jugador-252;22;6000000;MC;Athletic Club de Bilbao
+Jugador-253;20;18000000;MC;Athletic Club de Bilbao
+Jugador-254;28;17000000;MC;Athletic Club de Bilbao
+Jugador-255;22;5000000;MC;Athletic Club de Bilbao
+Jugador-256;28;16000000;MC;Athletic Club de Bilbao
+Jugador-257;25;13000000;MC;Athletic Club de Bilbao
+Jugador-258;20;10000000;MC;Athletic Club de Bilbao
+Jugador-259;29;14000000;MC;Athletic Club de Bilbao
+Jugador-260;27;8000000;MC;Athletic Club de Bilbao
+Jugador-261;27;19000000;MC;Athletic Club de Bilbao
+Jugador-262;25;17000000;MC;Athletic Club de Bilbao
+Jugador-263;21;16000000;MC;Athletic Club de Bilbao
+Jugador-264;29;6000000;MC;Athletic Club de Bilbao
+Jugador-265;28;7000000;MC;Athletic Club de Bilbao
+Jugador-266;25;11000000;MC;Athletic Club de Bilbao
+Jugador-267;23;6000000;MC;Athletic Club de Bilbao
+Jugador-268;27;14000000;MC;Athletic Club de Bilbao
+Jugador-269;29;16000000;MC;Athletic Club de Bilbao
+Jugador-270;21;10000000;MC;Athletic Club de Bilbao
+Jugador-271;28;16000000;MC;Athletic Club de Bilbao
+Jugador-272;22;12000000;MC;Athletic Club de Bilbao
+Jugador-273;24;10000000;MC;Athletic Club de Bilbao
+Jugador-274;22;9000000;MC;Athletic Club de Bilbao
+Jugador-275;22;13000000;MC;Atlético de Madrid
+Jugador-276;26;5000000;MC;Atlético de Madrid
+Jugador-277;25;17000000;MC;Atlético de Madrid
+Jugador-278;21;17000000;MC;Atlético de Madrid
+Jugador-279;23;15000000;MC;Atlético de Madrid
+Jugador-280;26;19000000;MC;Atlético de Madrid
+Jugador-281;24;13000000;MC;Atlético de Madrid
+Jugador-282;20;5000000;MC;Atlético de Madrid
+Jugador-283;25;7000000;MC;Atlético de Madrid
+Jugador-284;22;16000000;MC;Atlético de Madrid
+Jugador-285;25;8000000;MC;Atlético de Madrid
+Jugador-286;28;14000000;MC;Atlético de Madrid
+Jugador-287;22;13000000;MC;Atlético de Madrid
+Jugador-288;27;13000000;MC;Atlético de Madrid
+Jugador-289;27;15000000;MC;Atlético de Madrid
+Jugador-290;22;15000000;MC;Atlético de Madrid
+Jugador-291;25;15000000;MC;Atlético de Madrid
+Jugador-292;25;15000000;MC;Atlético de Madrid
+Jugador-293;22;7000000;MC;Atlético de Madrid
+Jugador-294;20;10000000;MC;Atlético de Madrid
+Jugador-295;29;10000000;MC;Atlético de Madrid
+Jugador-296;20;11000000;MC;Atlético de Madrid
+Jugador-297;25;8000000;MC;Atlético de Madrid
+Jugador-298;22;18000000;MC;Atlético de Madrid
+Jugador-299;22;18000000;MC;Atlético de Madrid
+Jugador-300;29;5000000;MC;CA Osasuna
+Jugador-301;26;11000000;MC;CA Osasuna
+Jugador-302;22;12000000;MC;CA Osasuna
+Jugador-303;25;16000000;MC;CA Osasuna
+Jugador-304;22;18000000;MC;CA Osasuna
+Jugador-305;28;11000000;MC;CA Osasuna
+Jugador-306;26;10000000;MC;CA Osasuna
+Jugador-307;26;7000000;MC;CA Osasuna
+Jugador-308;28;8000000;MC;CA Osasuna
+Jugador-309;29;12000000;MC;CA Osasuna
+Jugador-310;29;13000000;MC;CA Osasuna
+Jugador-311;20;8000000;MC;CA Osasuna
+Jugador-312;25;9000000;MC;CA Osasuna
+Jugador-313;25;19000000;MC;CA Osasuna
+Jugador-314;26;15000000;MC;CA Osasuna
+Jugador-315;29;7000000;MC;CA Osasuna
+Jugador-316;21;19000000;MC;CA Osasuna
+Jugador-317;20;11000000;MC;CA Osasuna
+Jugador-318;29;8000000;MC;CA Osasuna
+Jugador-319;26;18000000;MC;CA Osasuna
+Jugador-320;25;10000000;MC;CA Osasuna
+Jugador-321;29;8000000;MC;CA Osasuna
+Jugador-322;25;5000000;MC;CA Osasuna
+Jugador-323;27;16000000;MC;CA Osasuna
+Jugador-324;24;15000000;MC;CA Osasuna
+Jugador-325;24;19000000;MC;Rayo Vallecano de Madrid
+Jugador-326;24;11000000;MC;Rayo Vallecano de Madrid
+Jugador-327;29;17000000;MC;Rayo Vallecano de Madrid
+Jugador-328;22;19000000;MC;Rayo Vallecano de Madrid
+Jugador-329;26;15000000;MC;Rayo Vallecano de Madrid
+Jugador-330;28;8000000;MC;Rayo Vallecano de Madrid
+Jugador-331;26;6000000;MC;Rayo Vallecano de Madrid
+Jugador-332;26;5000000;MC;Rayo Vallecano de Madrid
+Jugador-333;22;19000000;MC;Rayo Vallecano de Madrid
+Jugador-334;25;16000000;MC;Rayo Vallecano de Madrid
+Jugador-335;26;16000000;MC;Rayo Vallecano de Madrid
+Jugador-336;21;5000000;MC;Rayo Vallecano de Madrid
+Jugador-337;23;7000000;MC;Rayo Vallecano de Madrid
+Jugador-338;28;11000000;MC;Rayo Vallecano de Madrid
+Jugador-339;20;8000000;MC;Rayo Vallecano de Madrid
+Jugador-340;27;16000000;MC;Rayo Vallecano de Madrid
+Jugador-341;28;11000000;MC;Rayo Vallecano de Madrid
+Jugador-342;24;9000000;MC;Rayo Vallecano de Madrid
+Jugador-343;24;14000000;MC;Rayo Vallecano de Madrid
+Jugador-344;29;12000000;MC;Rayo Vallecano de Madrid
+Jugador-345;29;19000000;MC;Rayo Vallecano de Madrid
+Jugador-346;27;15000000;MC;Rayo Vallecano de Madrid
+Jugador-347;28;15000000;MC;Rayo Vallecano de Madrid
+Jugador-348;26;5000000;MC;Rayo Vallecano de Madrid
+Jugador-349;26;9000000;MC;Rayo Vallecano de Madrid
+Jugador-350;20;19000000;MC;Real Zaragoza
+Jugador-351;24;12000000;MC;Real Zaragoza
+Jugador-352;25;15000000;MC;Real Zaragoza
+Jugador-353;24;18000000;MC;Real Zaragoza
+Jugador-354;29;5000000;MC;Real Zaragoza
+Jugador-355;29;5000000;MC;Real Zaragoza
+Jugador-356;29;18000000;MC;Real Zaragoza
+Jugador-357;20;8000000;MC;Real Zaragoza
+Jugador-358;25;9000000;MC;Real Zaragoza
+Jugador-359;27;10000000;MC;Real Zaragoza
+Jugador-360;26;18000000;MC;Real Zaragoza
+Jugador-361;20;12000000;MC;Real Zaragoza
+Jugador-362;27;13000000;MC;Real Zaragoza
+Jugador-363;25;6000000;MC;Real Zaragoza
+Jugador-364;21;19000000;MC;Real Zaragoza
+Jugador-365;26;19000000;MC;Real Zaragoza
+Jugador-366;27;9000000;MC;Real Zaragoza
+Jugador-367;28;15000000;MC;Real Zaragoza
+Jugador-368;26;5000000;MC;Real Zaragoza
+Jugador-369;24;16000000;MC;Real Zaragoza
+Jugador-370;27;10000000;MC;Real Zaragoza
+Jugador-371;28;8000000;MC;Real Zaragoza
+Jugador-372;28;19000000;MC;Real Zaragoza
+Jugador-373;23;7000000;MC;Real Zaragoza
+Jugador-374;25;10000000;MC;Real Zaragoza
+Jugador-375;21;12000000;MC;Sociedad Deportiva Huesca
+Jugador-376;20;19000000;MC;Sociedad Deportiva Huesca
+Jugador-377;27;13000000;MC;Sociedad Deportiva Huesca
+Jugador-378;28;9000000;MC;Sociedad Deportiva Huesca
+Jugador-379;28;11000000;MC;Sociedad Deportiva Huesca
+Jugador-380;25;14000000;MC;Sociedad Deportiva Huesca
+Jugador-381;27;13000000;MC;Sociedad Deportiva Huesca
+Jugador-382;20;6000000;MC;Sociedad Deportiva Huesca
+Jugador-383;23;7000000;MC;Sociedad Deportiva Huesca
+Jugador-384;26;15000000;MC;Sociedad Deportiva Huesca
+Jugador-385;26;13000000;MC;Sociedad Deportiva Huesca
+Jugador-386;26;15000000;MC;Sociedad Deportiva Huesca
+Jugador-387;21;5000000;MC;Sociedad Deportiva Huesca
+Jugador-388;22;11000000;MC;Sociedad Deportiva Huesca
+Jugador-389;23;5000000;MC;Sociedad Deportiva Huesca
+Jugador-390;28;13000000;MC;Sociedad Deportiva Huesca
+Jugador-391;23;9000000;MC;Sociedad Deportiva Huesca
+Jugador-392;21;9000000;MC;Sociedad Deportiva Huesca
+Jugador-393;25;8000000;MC;Sociedad Deportiva Huesca
+Jugador-394;20;5000000;MC;Sociedad Deportiva Huesca
+Jugador-395;28;16000000;MC;Sociedad Deportiva Huesca
+Jugador-396;26;15000000;MC;Sociedad Deportiva Huesca
+Jugador-397;29;19000000;MC;Sociedad Deportiva Huesca
+Jugador-398;25;12000000;MC;Sociedad Deportiva Huesca
+Jugador-399;27;11000000;MC;Sociedad Deportiva Huesca
+Jugador-400;24;8000000;MC;RCD Mallorca
+Jugador-401;28;18000000;MC;RCD Mallorca
+Jugador-402;26;5000000;MC;RCD Mallorca
+Jugador-403;28;6000000;MC;RCD Mallorca
+Jugador-404;25;17000000;MC;RCD Mallorca
+Jugador-405;26;13000000;MC;RCD Mallorca
+Jugador-406;25;19000000;MC;RCD Mallorca
+Jugador-407;24;7000000;MC;RCD Mallorca
+Jugador-408;22;12000000;MC;RCD Mallorca
+Jugador-409;26;11000000;MC;RCD Mallorca
+Jugador-410;25;19000000;MC;RCD Mallorca
+Jugador-411;28;6000000;MC;RCD Mallorca
+Jugador-412;24;6000000;MC;RCD Mallorca
+Jugador-413;22;12000000;MC;RCD Mallorca
+Jugador-414;23;7000000;MC;RCD Mallorca
+Jugador-415;29;12000000;MC;RCD Mallorca
+Jugador-416;20;15000000;MC;RCD Mallorca
+Jugador-417;24;12000000;MC;RCD Mallorca
+Jugador-418;22;16000000;MC;RCD Mallorca
+Jugador-419;25;9000000;MC;RCD Mallorca
+Jugador-420;22;14000000;MC;RCD Mallorca
+Jugador-421;28;5000000;MC;RCD Mallorca
+Jugador-422;28;19000000;MC;RCD Mallorca
+Jugador-423;25;6000000;MC;RCD Mallorca
+Jugador-424;28;19000000;MC;RCD Mallorca
+Jugador-425;20;18000000;MC;Cádiz CF
+Jugador-426;26;7000000;MC;Cádiz CF
+Jugador-427;21;9000000;MC;Cádiz CF
+Jugador-428;28;18000000;MC;Cádiz CF
+Jugador-429;29;15000000;MC;Cádiz CF
+Jugador-430;21;11000000;MC;Cádiz CF
+Jugador-431;26;11000000;MC;Cádiz CF
+Jugador-432;24;6000000;MC;Cádiz CF
+Jugador-433;22;19000000;MC;Cádiz CF
+Jugador-434;29;9000000;MC;Cádiz CF
+Jugador-435;26;15000000;MC;Cádiz CF
+Jugador-436;29;8000000;MC;Cádiz CF
+Jugador-437;22;16000000;MC;Cádiz CF
+Jugador-438;28;13000000;MC;Cádiz CF
+Jugador-439;22;18000000;MC;Cádiz CF
+Jugador-440;22;12000000;MC;Cádiz CF
+Jugador-441;28;11000000;MC;Cádiz CF
+Jugador-442;27;6000000;MC;Cádiz CF
+Jugador-443;23;8000000;MC;Cádiz CF
+Jugador-444;28;6000000;MC;Cádiz CF
+Jugador-445;20;10000000;MC;Cádiz CF
+Jugador-446;21;12000000;MC;Cádiz CF
+Jugador-447;26;9000000;MC;Cádiz CF
+Jugador-448;24;18000000;MC;Cádiz CF
+Jugador-449;24;18000000;MC;Cádiz CF
+Jugador-450;29;10000000;MC;UD Almería
+Jugador-451;23;16000000;MC;UD Almería
+Jugador-452;26;13000000;MC;UD Almería
+Jugador-453;20;19000000;MC;UD Almería
+Jugador-454;29;8000000;MC;UD Almería
+Jugador-455;26;8000000;MC;UD Almería
+Jugador-456;29;13000000;MC;UD Almería
+Jugador-457;26;15000000;MC;UD Almería
+Jugador-458;21;11000000;MC;UD Almería
+Jugador-459;25;10000000;MC;UD Almería
+Jugador-460;22;8000000;MC;UD Almería
+Jugador-461;23;6000000;MC;UD Almería
+Jugador-462;23;15000000;MC;UD Almería
+Jugador-463;20;12000000;MC;UD Almería
+Jugador-464;26;16000000;MC;UD Almería
+Jugador-465;21;6000000;MC;UD Almería
+Jugador-466;26;17000000;MC;UD Almería
+Jugador-467;22;15000000;MC;UD Almería
+Jugador-468;25;17000000;MC;UD Almería
+Jugador-469;24;9000000;MC;UD Almería
+Jugador-470;29;5000000;MC;UD Almería
+Jugador-471;20;7000000;MC;UD Almería
+Jugador-472;25;10000000;MC;UD Almería
+Jugador-473;28;10000000;MC;UD Almería
+Jugador-474;27;5000000;MC;UD Almería
+Jugador-475;24;11000000;MC;Getafe CD
+Jugador-476;23;16000000;MC;Getafe CD
+Jugador-477;25;6000000;MC;Getafe CD
+Jugador-478;20;17000000;MC;Getafe CD
+Jugador-479;21;10000000;MC;Getafe CD
+Jugador-480;21;12000000;MC;Getafe CD
+Jugador-481;26;17000000;MC;Getafe CD
+Jugador-482;26;18000000;MC;Getafe CD
+Jugador-483;24;10000000;MC;Getafe CD
+Jugador-484;26;6000000;MC;Getafe CD
+Jugador-485;25;5000000;MC;Getafe CD
+Jugador-486;29;15000000;MC;Getafe CD
+Jugador-487;24;16000000;MC;Getafe CD
+Jugador-488;27;12000000;MC;Getafe CD
+Jugador-489;20;15000000;MC;Getafe CD
+Jugador-490;29;13000000;MC;Getafe CD
+Jugador-491;24;10000000;MC;Getafe CD
+Jugador-492;26;8000000;MC;Getafe CD
+Jugador-493;26;6000000;MC;Getafe CD
+Jugador-494;20;13000000;MC;Getafe CD
+Jugador-495;22;16000000;MC;Getafe CD
+Jugador-496;23;13000000;MC;Getafe CD
+Jugador-497;23;8000000;MC;Getafe CD
+Jugador-498;28;5000000;MC;Getafe CD
+Jugador-499;24;8000000;MC;Getafe CD
