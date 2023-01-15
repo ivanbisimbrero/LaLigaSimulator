@@ -18,6 +18,13 @@ public class MatchDay {
 		this.restingTeam = null;
 		this.matchesPlayed = new SingleLinkedList();
 	}
+
+	private Matchday(int leg, int matchdayNumber, PriorityQueue matches, Team restingTeam) {
+        this.leg = leg;
+        this.matchdayNumber = matchdayNumber;
+        this.matches = matches;
+        this.restingTeam = restingTeam;
+    }
 	
 	public boolean addMatch(Match match) {
 		boolean success = !this.isTeamPlaying(match.getHomeTeam()) && !this.isTeamPlaying(match.getAwayTeam()) 
