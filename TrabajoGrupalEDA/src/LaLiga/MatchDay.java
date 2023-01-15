@@ -85,4 +85,24 @@ public class MatchDay {
 		this.restingTeam = restingTeam;
 	}
 
+	public MatchDay getOppositeMatchDay(int leg, int MatchDayNumber) {
+        
+        PriorityQueue oldMatches = new PriorityQueue(MatchDay.WEEK_DAYS.length);
+        PriorityQueue newMatches = new PriorityQueue(MatchDay.WEEK_DAYS.length);
+        while (!this.matches.isEmpty()){
+            Match match = (Match)this.matches.poll();
+            int prio = (match.getDay().equals(MatchDay.WEEK_DAYS[0])) ? 1 : 
+                       (match.getDay().equals(MatchDay.WEEK_DAYS[1])) ? 2 : 
+                       (match.getDay().equals(MatchDay.WEEK_DAYS[2])) ? 3 : 0;
+            oldMatches.push(match, prio);
+            Match newMatch = new Match(match.getAwayTeam(), match.getHomeTeam());
+            newMatch.setDay(match.getDay());
+            newMatches.push(newMatch , prio);
+        }
+        
+        this.matches = oldMatches;
+        return new MatchDay(leg, MatchDayNumber, newMatches, restingTeam);
+        
+    }
+
 }

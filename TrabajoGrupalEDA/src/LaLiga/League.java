@@ -6,16 +6,16 @@ import structures.*;
 
 public class League {
 
-    private int MAX_TEAMS = 21;
-    private static int PLAYER_AGE = 0;
-    private static int PLAYER_COST = 1;
-    private static int PLAYER_NAME = 2;
-    private static int PLAYER_POSITION = 3;
-    private static int PLAYER_TEAM = 4;
-    private static int TEAM_NAME = 5;
-    private static int TEAM_SHORT = 6;
+    private static final int MAX_TEAMS = 21;
 
-    private String name; // name of the league
+    private static final int TEAM_NAME = 0;
+    private static final int TEAM_SHORT = 1;
+    private static final int PLAYER_NAME = 0;
+    private static final int PLAYER_AGE = 1;
+    private static final int PLAYER_COST = 2;
+    private static final int PLAYER_POSITION = 3;
+    private static final int PLAYER_TEAM = 4;
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK =  "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -23,20 +23,21 @@ public class League {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_BLUE =  "\u001B[34m";
 
-    SingleLinkedList matchdays; // matchdays of the whole league
+    private SortingLibrary<Team> mySorter; // Library to sort teams
     
-    SortingLibrary<Team> mySorter; // Library to sort teams
-    
-    HashMap teams; // hashmap to save the teams 
+    private String name; // name of the league
+    private SingleLinkedList matchdays; // matchdays of the whole league
+    private HashMap teams; // hashmap to save the teams 
 
     /**
      * Default constructor for the league
      */
-    public League(){
+    public League(String name){
         this.matchdays = new SingleLinkedList();
         this.mySorter = new SortingLibrary<Team>();
         this.teams = new HashMap(MAX_TEAMS);
-        this.name = "";
+        this.name = name;
+        this.loadTeamsAndPlayers();
     }
 
     /**
@@ -69,70 +70,62 @@ public class League {
      * @param leg number of the leg
      * @return List with all the games
      */
-    public SingleLinkedList getMatches(Team[] myTeams, int leg){
-        myTeams = shuffle(myTeams); // Organise randomly the order of the teams
-        Random rand = new Random(); // Index to get a random team
-        SingleLinkedList auxMatches = new SingleLinkedList();
-        if(leg == 0){
-            System.out.println("Shuffling first leg with Bogosort...\n");
-            System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿\n⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿\n⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿\n⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿\n⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿\n⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿\n⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿\n⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿\n⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿⣿\n");
-            for(int i=0; i<(myTeams.length-1); i++){
-                MatchDay auxMatchDay = new MatchDay(0, i+1);
-                for(int j=0; j<myTeams.length; j++){
-                    for(int k=j+1; k<myTeams.length; k++){
-                        Match auxMatch = new Match(myTeams[j], myTeams[k]);
-                        auxMatchDay.addMatch(auxMatch);
-                        auxMatchDay.setDayOfMatch(auxMatch);
-                        auxMatchDay.setRestingTeam(myTeams[rand.nextInt(myTeams.length)]);
-                        auxMatches.insertLast(auxMatchDay);
-                    }
+    public SingleLinkedList getMatches(Team[] myTeams){
+        SingleLinkedList matches = new SingleLinkedList();
+            for (int i = 0; i < myTeams.length; ++i) {
+                Team homeTeam = myTeams[i];
+                for (int j = i + 1; j < myTeams.length; ++j) {
+                    matches.insertLast(new Match(homeTeam, myTeams[j]));
                 }
             }
-        }else 
-        if(leg == 1){
-            System.out.println("Shuffling second leg with Bogosort...\n");
-            System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿\n⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿\n⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿\n⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿\n⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿\n⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿\n⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿\n⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿\n⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿⣿\n");
-            for(int i=0; i<(myTeams.length-1); i++){
-                MatchDay auxMatchDay = new MatchDay(1, i+1);
-                for(int j=myTeams.length-1; j>0; j--){
-                    for(int k=j-1; k>=0; k--){
-                        Match auxMatch = new Match(myTeams[j], myTeams[k]);
-                        auxMatchDay.addMatch(auxMatch);
-                        auxMatchDay.setDayOfMatch(auxMatch);
-                        auxMatchDay.setRestingTeam(myTeams[rand.nextInt(myTeams.length)]);
-                        auxMatches.insertLast(auxMatchDay);   
-                    }
-                }
-                auxMatches.insertLast(auxMatchDay);
-            }
-        }else{
-            return null; // Non valid input
-        }
-        return auxMatches;
+        return matches;
     }
 
     /**
-     * Method which randomly shuffles a team (one of the steps in the bogosort algorithm)
+     * Method which randomly shuffles a team array
      * @param myTeams the teams we want to shuffle
-     * @return the array of teams shuffled
      */
-    public Team[] shuffle(Team[] myTeams){
-        Random rand = new Random();
+    public void shuffle(Team[] myTeams){
         if(myTeams!=null){
+            Random rand = new Random();
             for(int i=0; i<myTeams.length; i++){
+                int swap = rand.nextInt(myTeams.length);
                 Team aux = myTeams[i];
-                myTeams[i] = myTeams[rand.nextInt(myTeams.length)];
-                myTeams[rand.nextInt(myTeams.length)] = aux;
+                myTeams[i] = myTeams[swap];
+                myTeams[swap] = aux;
             }   
         }
-        return myTeams;
     }
+
     /**
      * Method which loads all teams and players from a CSV file
      */
-    public void loadTeamsAndPlayers(){
-        for(int i=0; i<MAX_TEAMS;  i++){
-
+    private void loadTeamsAndPlayers(){
+        try{
+            Scanner scanTeams = new Scanner(new File("teams.csv"));
+            Scanner scanPlayers = new Scanner(new File("players.csv"));
+            scanTeams.nextLine(); //Skip headers
+            while (scanTeams.hasNext()){
+                String[] teamData = scanTeams.nextLine().split(";");
+                this.addTeam(new Team(teamData[TEAM_NAME], teamData[TEAM_SHORT]));
+            }
+            scanTeams.close();
+            //Teams loaded
+            
+            scanPlayers.nextLine();//Skip Headers
+            while(scanPlayers.hasNext()){
+                String[] playerData = scanPlayers.nextLine().split(";");
+                teams.get(playerData[PLAYER_TEAM]).addPlayer(
+                        new Player(playerData[PLAYER_NAME], 
+                                Integer.parseInt(playerData[PLAYER_AGE]), 
+                                playerData[PLAYER_POSITION], 
+                                Integer.parseInt(playerData[PLAYER_COST])
+                        )
+                );
+            }
+            scanPlayers.close();
+        } catch (FileNotFoundException ex){
+            System.err.println("Exception thrown: " + ex.getMessage());
         }
     }
 
@@ -141,10 +134,71 @@ public class League {
      * @param myTeams array of teams 
      * @param first list of the games 
      */
-    public void matchDaysSetup(Team[] myTeams, SingleLinkedList first){
-        for(int i=0; i<first.size; i++){
-            matchdays.insertLast(first.get(i).data);
+    public void matchDaysSetup(Team[] myTeams, SingleLinkedList matches){
+        SingleLinkedList matchdaysSetup = new SingleLinkedList();
+        SingleLinkedList secondLegMatchdaysSetup = new SingleLinkedList();
+        int indexOfResting = (myTeams.length%2== 0) ? -1 : myTeams.length - 1;
+        
+        int numberOfMatchDays = myTeams.length;
+        if (myTeams.length%2 == 0) --numberOfMatchDays;
+        
+        for (int i = 0; i < numberOfMatchDays; ++i){
+            Matchday matchday = new Matchday(0, i+1);
+            if (indexOfResting != -1) matchday.setRestingTeam(myTeams[indexOfResting--]);
+            for (int j = 0; j < matches.size;j++){
+                Match match = (Match)matches.get(j).data;
+                if(matchday.addMatch(match)){
+                    matches.remove(match);
+                    --j;
+                }
+            }
+            matchdaysSetup.insertLast(matchday);
         }
+        System.out.println("Matches size = " + matches.size);
+        
+        /*
+        //Volcado de full copies de la primera tanda al setup de la segunda
+        for (int i = 0; i < matchdaysSetup.size; ++i){
+            Matchday secondLegMatchday = ((Matchday)matchdaysSetup.get(i)).getOppositeMatchday(1,((Matchday)matchdaysSetup.get(i)).getMatchdayNumber()+numberOfMatchDays);
+            secondLegMatchdaysSetup.insertLast(secondLegMatchday);
+        }
+        
+        for(int i = 0; i < secondLegMatchdaysSetup.size; i++){
+            matchdaysSetup.insertLast(secondLegMatchdaysSetup.get(i));
+        }
+        */
+        
+        
+        
+        
+        
+        
+        //limpiamos la lista de la tanda y la rellenamos con full copies de la lista completa (actualmente contiene la tanda real
+        
+        /*
+        int numberOfMatchdaysPerLeg = (myTeams.length % 2 == 1) ? myTeams.length : myTeams.length - 1; //myTeams.length - (myTeams.length + 1) %2
+        int leg = 1;
+        SingleLinkedList activeMatchList = secondLegMatches;
+        for (int i = numberOfMatchdaysPerLeg; i > 0; --i) { // We are creating them backawards as inserting head in list is quicker than inserting last
+            Matchday matchday = new Matchday(leg, i);
+            matchdays.insertHead(matchday);
+            matchday.setRestingTeam((myTeams.length % 2 == 0) ? null : myTeams[i - 1]);
+            for (int j = 0; j < activeMatchList.size; ++j) {
+                Match nextMatch = (Match) activeMatchList.get(j);
+                if (matchday.addMatch(nextMatch)) {
+                    activeMatchList.remove(nextMatch);
+                    --j; //Because we are removing an element from the list, we have to correct the j to the previous element
+                }
+            }
+
+            if (i == 1 && leg == 1) {
+                i = numberOfMatchdaysPerLeg + 1;
+                leg = 0;
+                activeMatchList = firstLegMatches;
+            }
+        }*/
+        
+        this.matchdays = matchdaysSetup;
     }
 
     /**
@@ -190,14 +244,12 @@ public class League {
      * Method which simulates all of the games in the league and displays the league table at the end of the season
      */
     public void simulateSession(){
-        SingleLinkedList firstFixtures, secondFixtures; // Lists of the first leg and the second leg
         Team[] myTeams = teams.getValuesArray();
-        
-        firstFixtures = getMatches(myTeams, 0); // Generate the matches in the first leg
-        secondFixtures = getMatches(myTeams, 1); // Generate the matches in the second leg
+        shuffle(myTeams);
+        SingleLinkedList firstFixtures =getMatches(myTeams);// Generate the matches in the first leg
+
         
         matchDaysSetup(myTeams, firstFixtures);
-        matchDaysSetup(myTeams, secondFixtures);
 
         // Should show the games played on screen
         for(int i=0; i<matchdays.size; i++){
