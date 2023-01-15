@@ -171,11 +171,6 @@ public class League {
         }
         */
         
-        
-        
-        
-        
-        
         //limpiamos la lista de la tanda y la rellenamos con full copies de la lista completa (actualmente contiene la tanda real
         
         /*
