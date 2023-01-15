@@ -1,11 +1,11 @@
 package LaLiga;
 
 import java.util.Random;
-import helpers.SortingLibrary;
-import structures.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import helpers.SortingLibrary;
+import structures.*;
 
 public class League {
 
