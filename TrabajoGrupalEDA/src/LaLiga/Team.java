@@ -257,6 +257,17 @@ public class Team implements Comparable<Team>{
         this.active = active;
     }
 
+    public int getWins() {
+        return wins;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
     
     /**
      * @author Antonio Gabarrús Nerin (alu142920)
