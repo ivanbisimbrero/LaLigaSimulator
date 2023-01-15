@@ -35,89 +35,73 @@ public class Match {
 		this.awayScore=awayScore;
 	}
 	
-	public void simulate(){ //const
-		int goles;
-		double []arrProb=new double[5];
-		int difBudget=homeTeam.getBudget()-awayTeam.getBudget();
-		System.out.println("MATCH: "+homeTeam.getName()+" vs "+awayTeam.getName()+": "+homeScore
-				+"-"+awayScore+"\n");
-		//TENDRÉ QUE DEFINIR ARRAYS DE PROBABILIDADES EN FUNCIÓN DE LA DIF DE PRESUPUESTO
-		if(difBudget>HIGH_DIF) {
-			arrProb[0]=0.15;
-			arrProb[1]=0.5;
-			arrProb[2]=0.2;
-			arrProb[3]=0.1;
-			arrProb[4]=0.05;
-		}else if(difBudget>LOW_DIF) {
-			arrProb[0]=0.1;
-			arrProb[1]=0.4;
-			arrProb[2]=0.3;
-			arrProb[3]=0.15;
-			arrProb[4]=0.05;
-		}else {
-			arrProb[0]=0.05;
-			arrProb[1]=0.3;
-			arrProb[2]=0.4;
-			arrProb[3]=0.2;
-			arrProb[4]=0.05;
-		}
-		//IMPRIMO Nº DEL 0 AL 100 PARA QUE LA PROBABILIDAD DE QUE ESTÉ EN UNA PARTE DE LA DISTRIBUCIÓN COINCIDA CON LOS ARRAYS DE PROBABILIDAD 
-		double rand = new Random().nextInt(101);
-		rand=rand/100;
-		goles=(int)rand*7/100; //LO TRANSFORMO EN PROPORCIÓN A UN Nº DEL O-7 (GOLES)
-		//SE IRÁ MIRANDO EN QUE PARTE DE LA CAMPANA DE DISTRIBUCIÓN ESTÁ DICHO Nº (IREMOS SUMANDO Y SE OBSERVARÁ QUE EN LA MITAD SE CONCENTRAN MÁS NUMEROS POR LO QUE ES MÁS PROBABLE QUE TOQUE AHÍ)
-		if (rand < arrProb[0]) {
-            System.out.println((difBudget > 0 ? homeTeam.getName() : awayTeam.getName()) + " wins by a landslide");
-            if(homeTeam.getBudget()>awayTeam.getBudget()) {
-            	homeScore=goles;
-            	awayScore=new Random().nextInt(homeScore-2);
+	private void getResult(int[] probabilities){
+        int results = Match.RAND.nextInt(100); // 0-99 
+        if (results < probabilities[0]) { // home team wins, away team routed
+                homeScore = (Match.RAND.nextInt(5) + 3);
+                int aux = Match.RAND.nextInt(5);
+                awayScore = (homeScore - aux < 0) ? 0 : (homeScore - aux < 3) ? homeScore - 3 : homeScore - aux;
+            } else if (results < probabilities[1]) { // home team wins
+                homeScore = Match.RAND.nextInt(6) + 2;
+                int aux = Match.RAND.nextInt(2) + 1;// 1 or 2
+                awayScore = homeScore - aux;
+            } else if (results < probabilities[2]) { // draw
+                homeScore = Match.RAND.nextInt(8);
+                awayScore = homeScore;
+            } else if (results < probabilities[3]) { // away team wins
+                homeScore = Match.RAND.nextInt(6) + 2;
+                int aux = Match.RAND.nextInt(2) + 1;// 1 or 2
+                awayScore = homeScore - aux;
+            } else { // away team wins, home team routed
+                awayScore = (Match.RAND.nextInt(5) + 3);
+                int aux = Match.RAND.nextInt(5);
+                homeScore = (awayScore - aux < 0) ? 0 : (awayScore - aux < 3) ? awayScore - 3 : awayScore - aux;
             }
-            else {
-            	awayScore=goles;
-            	homeScore=new Random().nextInt(awayScore-2);
-            }
-		} else if (rand <arrProb[0]+arrProb[1]) {
-            System.out.println((difBudget> 0 ? homeTeam.getName() : awayTeam.getName()) + " wins");
-            if(homeTeam.getBudget()>awayTeam.getBudget()) {
-            	homeScore=goles;
-            	awayScore=new Random().nextInt(2)+homeScore-2;
-            }
-            else {
-            	awayScore=goles;
-            	homeScore=new Random().nextInt(2)+awayScore-2;
-            }
-        } else if (rand <arrProb[0]+arrProb[1]+arrProb[2]) {
-           System.out.println("It´s a draw");
-           homeScore=goles;
-           awayScore=goles;
-           
-        } else if (rand < arrProb[0]+arrProb[1]+arrProb[2]+arrProb[3]) {
-           System.out.println((difBudget< 0 ? homeTeam.getName() : awayTeam.getName()) + " wins");
-           if(homeTeam.getBudget()>awayTeam.getBudget()) {
-           	awayScore=goles;
-           	homeScore=new Random().nextInt(2)+awayScore-2;
-           }
-           else {
-           	homeScore=goles;
-           	awayScore=new Random().nextInt(2)+homeScore-2;
-           }
-        } else {
-            System.out.println((difBudget < 0 ?  homeTeam.getName() : awayTeam.getName()) + " wins by a landslide");
-            if(homeTeam.getBudget()>awayTeam.getBudget()) {
-            	awayScore=goles;
-            	homeScore=new Random().nextInt(awayScore-2);
-            }
-            else {
-            	homeScore=goles;
-            	awayScore=new Random().nextInt(homeScore-2);
-            }
+    }
+    // +20|20|5|0
+    public void simulate() {
+        int budgetDiff = homeTeam.getBudget() - awayTeam.getBudget(); // if home > away, diff > 0, else diff < 0
+        int[] probabilities;
+        // Changing from 0-99 to 1-100 (Easier to understand)
+        if (budgetDiff > Match.HIGH_DIFF) { //High difference between budgets (>20m)
+            probabilities = new int[]{15,65,85,95,100};
+            System.out.println("+HIGH DIFF");
+        } else if (budgetDiff >= Match.LOW_DIFF) { // Medium difference between budgets(5m - 20m)
+            probabilities = new int[]{10,50,80,95,100};
+            System.out.println("+MEDIUM DIFF");
+        } else if (budgetDiff > 0) { // Little difference between budgets (<5m) 
+            probabilities = new int[]{5,35,75,95,100};
+            System.out.println("+LOW DIFF");
+        } else if (budgetDiff == 0){ // No difference between budgets
+            probabilities = new int[]{5,25,75,95,100};
+            System.out.println("NO DIFF");
+        } else if (budgetDiff > (-Match.LOW_DIFF)){
+            probabilities = new int[]{5,25,65,95,100};
+            System.out.println("-LOW DIFF");
+        } else if (budgetDiff >= (-Match.HIGH_DIFF)){
+            probabilities = new int[]{5,20,50,90,100};
+            System.out.println("-MEDIUM DIFF");
+        } else{
+            System.out.println("-HIGH DIFF");
+            probabilities = new int[]{5,15,35,85,100};
         }
-		
-		//AÑADIMOS LOS GOLES A LOS EQUIPOS
-		homeTeam.addGoalsFor(homeScore);
-		homeTeam.addGoalsAgainst(awayScore);
-		awayTeam.addGoalsFor(awayScore);
-		awayTeam.addGoalsAgainst(homeScore);
-	}
+        this.getResult(probabilities);
+        
+        homeTeam.addGoalsAgainst(awayScore);
+        homeTeam.addGoalsFor(homeScore);
+        awayTeam.addGoalsAgainst(homeScore);
+        awayTeam.addGoalsFor(awayScore);
+        if (homeScore == awayScore){
+            homeTeam.draw();
+            awayTeam.draw();
+        }
+        else if (homeScore > awayScore){
+            homeTeam.win();
+            awayTeam.loss();
+        }
+        else {
+            homeTeam.loss();
+            awayTeam.win();
+        }
 	
 }
